@@ -7,12 +7,12 @@ public class Operator {
 		int a=5;
 		int b=2;
 		System.out.println(a*b);//10
-		System.out.println(a/b);//2.5[x] 2[o] 몫
+		System.out.println(a/b);//2.5[x] 2[o]  몫
 		System.out.println(a%b);//1 나머지값
-		
+
 		System.out.println((float)a/b); //float/int ==> float
 		
-		System.out.println("2. 증감 연산자(++,--)");
+		System.out.println("2. 증감 연산자(++, --)");
 		int c=7;
 		long d=10;
 		c++; //c=c+1;
@@ -29,19 +29,19 @@ public class Operator {
 		System.out.println(e++);//5.6을 출력한 뒤 e는 6.6이 된다
 		System.out.println(e);//6.6
 		System.out.println(++e);//e를 7.6으로 만들고 출력을 함
-		System.out.println("-----------");
+		System.out.println("------------------");
 		System.out.println(g--);//8.7
 		System.out.println(g);//7.7
 		System.out.println(--g);//6.7
 		
-		System.out.println("3. 논리 부정 연산자 (!) --------");
+		System.out.println("3. 논리 부정 연산자 (!) ----------");
 		//! : 논리값 or 논리식에만 사용된다. true를 false로, false는 true로 만든다
 		boolean b1=false;
 		System.out.printf("b1=%b\n", b1);
 		System.out.printf("!b1=%b\n", !b1);
 		System.out.println(!true);
 		
-		System.out.println("4. 비교 연산자 (==, !=, >, <, >=, <=)------");
+		System.out.println("4. 비교 연산자 (==, !=, >,<,>=, <=)-------------");
 		/* = : 대입연산자
 		 * == : 비교연산자 
 		 * ===: 자바에는 없다[x], 자바스크립트 [o]
@@ -60,9 +60,9 @@ public class Operator {
 		//참조형의 경우는 주소값을 비교함
 		Date d1=new Date();
 		Date d2=new Date();
-		Date d3=d2; //d3는 d2가 가리키는 객체를 같이 가리킨다 (주소값이 같음)
+		Date d3=d2;//d3는 d2가 가리키는 객체를 같이 가리킨다 (주소값이 같음)
 		System.out.println("d1==d2: "+(d1==d2));//false
-		System.out.println("d2==d3: "+(d2==d3));//ture
+		System.out.println("d2==d3: "+(d2==d3));//true
 		
 		int m=5;
 		int n=7;
@@ -72,6 +72,11 @@ public class Operator {
 		System.out.println(m2>=n);//true
 		System.out.println(m<=n);//true
 		
-	}//--------------------------------------
+	}//-----------------------
+}///////////////////////////////////////////
 
-}/////////////////////////////////////////////
+
+
+
+
+

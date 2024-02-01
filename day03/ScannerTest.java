@@ -2,7 +2,7 @@ package day03;
 import java.util.Scanner;
 public class ScannerTest {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		System.out.println("정수를 입력하세요=>");
 		//int n=System.in.read();
 		//System.out.println("n: "+n);//'0'아스키코드 : 48
@@ -25,9 +25,9 @@ public class ScannerTest {
 		
 		System.out.println("올해의 목표를 문장으로 작성=>");
 		//엔터값 건너뛰기
-		sc.skip("\r\n");//엔터\r\n
+		sc.skip("\r\n");//엔터(\r\n)
 		String goal2=sc.nextLine();//라인단위로 입력받음 
-		//\n(줄바꿈) 직전까지의 문자열을 반환
+		//\n(줄바꿈) 직전까지의 문자열을 반환함
 		System.out.println("당신의 목표: "+goal2);
 		
 	}

@@ -3,37 +3,32 @@ package day06;
  * - CLI (Command Line Interface)
  * - GUI (Graphic User Interface)
  * 기본적 기능
- * 		CRUD기능
- * 		-C :Create => Insert 기능
- * 		-R :Read => 조회(Select), 검색 기능
- * 		-U :Update => 수정 (Update)
- * 		=D :Delete => 삭제 (Delete)
+ *   CRUD기능
+ *   - C: Create => Insert 기능
+ *   - R: Read => 조회 (Select), 검색 기능
+ *   - U: Update=> 수정 (Update)
+ *   - D: Delete=> 삭제 (Delete)
  * */
 import java.util.*;
 public class JobKorea {
-	static int count;//등록된 구직자수
+	static int count=0;//등록된 구직자수
 	static JobSeeker[] persons=new JobSeeker[20];
 	Scanner sc=new Scanner(System.in);
 	public static void menu() {
-		System.out.println("***JobKorea v1.1******");
+		System.out.println("***JobKorea v1.1*******");
 		System.out.println("1. 구직자 등록");//C
-		System.out.println("2. 회 사 등록");
+		System.out.println("2. 회 사  등록");
 		System.out.println("3. 구직자 정보 출력");//R
 		System.out.println("4. 회 사 정보 출력");
 		System.out.println("5. 구직자 정보 조회");//R
-		System.out.println("6.구직자 정보 수정");//U
+		System.out.println("6. 구직자 정보 수정");//U
 		System.out.println("7. 구직자 정보 삭제");//D
 		System.out.println("99. 종       료");
-		System.out.println("*********************");
-		System.out.println("메뉴 번호를 입력하세요=>");
-		System.out.println("*********************");
-		
-		
-		
-		
-		
-	}//----------------------------------
-	/**구직자 정보를 등록받는 메서드.등록받아 배열에 저장한다
+		System.out.println("************************");
+		System.out.println("메뉴번호를 입력하세요=>");
+		System.out.println("************************");
+	}//--------------------------
+	/**구직자 정보를 등록받는 메서드. 등록받아 배열에 저장한다
 	 * */
 	public void register() {
 		if(count>=persons.length) {
@@ -50,68 +45,73 @@ public class JobKorea {
 		if(yn==2) return;
 		//persons배열에 저장한다
 		JobKorea.persons[count++]=seeker;
-		
 		System.out.println(count+"명 구직자 정보 등록 완료!!");
-	}//--------------------------------------
-	/** 등록된 모든 구직자 프로필을 출력하는 메서드
-	 *  */
+	}//-------------------------------
+	/**등록된 모든 구직자 프로필을 출력하는 메서드
+	 * */
 	public void printAll() {
 		for(int i=0;i<count;i++) {
 			System.out.println(persons[i].profile());
 		}
-	}//------------------------------------------
+	}//--------------------------------------
+	
 	public void process() {
 		
 		while(true) {
-		//menu()호출
-		JobKorea.menu();
-		int no=sc.nextInt();
-		//System.out.println("no: "+no);
-		//종료처리
-		if(no==99) {
-			System.out.println("Bye Bye~~");
-			System.exit(0);//시스템종료
-		}
-		//유효성 체크
-		if(no<1||no>7) {
-			System.out.println("입력 오류!! 메뉴에 없는 번호에요");
-			continue;
-		}
-		switch(no) {
-			case 1://구직자 정보 등록바다서 배열에 저장
-			register();
-			break;
-			case 2://회사 정보 등록
-			break;
-			case 3://등록된 모든 구직자 정보 출력
-			printAll();
-			break;
-			case 4:
-			break;
-			case 5: //구직자 정보를 이름으로 검색
-			System.out.println("검색할 구직자 이름 입력=>");
-			String findName=sc.next();
-			String result=search(findName);
-			System.out.println(result);
-			break;
-		}//switch
-		}//while	
-	}//process()--------------------------
-	/**이름으로 배열에서 해당 이름의 구직자 정보를 찾아 문자열로 변환하는 메서드
+			//menu()호출
+			JobKorea.menu();
+			int no=sc.nextInt();
+			//System.out.println("no: "+no);
+			//종료처리
+			if(no==99) {
+				System.out.println("Bye Bye~~");
+				System.exit(0);//시스템 종료
+			}
+			//유효성 체크
+			if(no<1||no>7) {
+				System.out.println("입력 오류!! 메뉴에 없는 번호에요");
+				continue;
+			}
+			
+			switch(no) {
+				case 1://구직자 정보 등록받아서 배열에 저장
+					register();
+					break;
+				case 2://회사 정보 등록
+					break;
+				case 3://등록된 모든 구직자 정보 출력
+					printAll();
+					break;
+				case 4:
+					break;
+				case 5://구직자 정보를 이름으로 검색
+					System.out.println("검색할 구직자 이름 입력=>");
+					String findName=sc.next();
+					String result=search(findName);
+					System.out.println(result);
+					break;
+					
+			}//switch
+			
+			/////////
+		}//while
+	}//process()--------------------
+	/**이름으로 배열에서 해당 이름의 구직자 정보를 찾아 문자열로 반환하는 메서드
 	 * */
 	public String search(String name) {
 		String str="";
 		for(int i=0;i<count;i++) {
-			if(persons[i].getName().equals(name)){
+			if(persons[i].getName().equals(name)) {
 				str+=persons[i].profile();
 			}
-		}//for--------
+		}//for-------
 		if(str.equals("")) {
 			return name+"님 정보는 없습니다";
 		}
 		return str;
-	}//------------------------
+	}//---------------------------
 	
+
 	public static void main(String[] args) {
 		//process()호출
 		JobKorea app=new JobKorea();
@@ -120,3 +120,9 @@ public class JobKorea {
 	}//main()
 
 }//class
+
+
+
+
+
+
