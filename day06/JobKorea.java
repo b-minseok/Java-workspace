@@ -56,7 +56,6 @@ public class JobKorea {
 	}//--------------------------------------
 	
 	public void process() {
-		
 		while(true) {
 			//menu()호출
 			JobKorea.menu();
@@ -90,12 +89,62 @@ public class JobKorea {
 					String result=search(findName);
 					System.out.println(result);
 					break;
-					
+				case 6:
+					System.out.println("수정할 구직자 이름 입력=>");
+					String updateName=sc.next();
+					result=update(updateName);
+					System.out.println(result);
+					break;
+				case 7:
+					System.out.println("삭제할 구직자 이름 입력=>");
+					String deleteName=sc.next();					
+					result=delete(deleteName);
+					System.out.println(result);
+					break;
 			}//switch
-			
 			/////////
 		}//while
 	}//process()--------------------
+	/**
+	 * 구직자 정보를 삭제하는 메서드
+	 */
+	public String delete(String name) {
+		String str="";
+		for(int i=0;i<count;i++) {
+			if(persons[i].getName().equals(name)) {
+				for(int j=i;j<count-1;j++) {
+					persons[j]=persons[j+1];					
+				}//for--
+				count--;
+				str=name+"님 정보를 삭제했습니다. 현재 등록된 인원수: "+count+"명";
+				return str;
+			}//if---
+		}//for-----
+		if(str.equals("")) {
+			str=name+"님 정보는 없습니다";
+		}
+		return str;
+	}//---------------------------
+	
+	/**구직자 정보를 이름으로 검색후, 수정할 정보를 입력받아 수정처리하는 메서드
+	 * */
+	public String update(String name) {
+		String str="";
+		for(int i=0;i<count;i++) {
+			JobSeeker p=persons[i];
+			if(p.getName().equals(name)) {
+				System.out.println("::수정할 정보를 입력하세요::");
+				p.input();
+				str="수정 처리 완료!!";
+				return str;
+			}//if----
+		}//for-----
+		if(str.equals("")) {
+			str=name+"님은 없어요";
+		}
+		return str;
+	}//------------------------------
+	
 	/**이름으로 배열에서 해당 이름의 구직자 정보를 찾아 문자열로 반환하는 메서드
 	 * */
 	public String search(String name) {
@@ -120,9 +169,5 @@ public class JobKorea {
 	}//main()
 
 }//class
-
-
-
-
 
 

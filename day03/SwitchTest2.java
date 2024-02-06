@@ -16,7 +16,7 @@ public class SwitchTest2 {
 		char ch=no.charAt(0);
 		System.out.println("부서코드: "+ch);
 		//String 클래스의 메서드
-				/* char chartAt(int index) : index위치의 문자 1개를 추출해서 반환
+				/* char charAt(int index) : index위치의 문자 1개를 추출해서 반환
 				 * String substring(int start, int end)
 				 * : index번소 start위치에서 시작해서 end-1까지의 문자열을 추출해서 반환
 				 * */

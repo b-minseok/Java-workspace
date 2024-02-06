@@ -13,7 +13,7 @@ public class ForTest2 {
 			sum+=i;
 			//System.out.println("sum: "+sum);
 			gop*=i;
-			//gop=gop*1;
+			//gop=gop*i;
 		}
 		System.out.println("최종 sum: "+sum);
 		System.out.println("최종 gop: "+gop);
